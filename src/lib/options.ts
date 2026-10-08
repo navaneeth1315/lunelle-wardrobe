@@ -1,0 +1,12 @@
+export const CATEGORIES = ["Tops", "Bottoms", "Dresses", "Outerwear", "Shoes", "Accessories", "Traditional", "Other"] as const;
+export const ONBOARD_STYLES = ["Casual", "Minimal", "Streetwear", "Formal", "Smart Casual", "Traditional", "Sporty", "Trendy"];
+export const ONBOARD_OCCASIONS = ["College", "Office", "Date", "Party", "Travel", "Casual outing", "Wedding / traditional event", "Gym"];
+export const STYLE_FOR = ["Womenswear", "Menswear", "Gender-neutral", "Mix of everything"];
+export const CLIMATES = ["Mostly warm", "Mostly cool", "Four seasons", "Tropical / humid", "Use my live weather"];
+export const OCCASIONS = ["Casual", "Office", "Date", "Party", "Wedding", "Travel", "College", "Other"];
+export const STYLES = ["Minimal", "Classic", "Trendy", "Streetwear", "Elegant", "Smart Casual", "Traditional"];
+export const WEATHER = ["Hot & sunny", "Warm", "Mild", "Cool", "Cold", "Rainy"];
+export const COLOR_PREFS = ["Any", "Neutral", "Bright", "Dark", "Pastel"];
+export const FORMALITY = ["Casual", "Smart Casual", "Business", "Formal"];
+export const SEASONS = ["All season", "Spring", "Summer", "Autumn", "Winter"];
+export const SWATCHES = ["Black", "White", "Cream", "Beige", "Brown", "Grey", "Navy", "Blue", "Green", "Red", "Pink", "Yellow"];
