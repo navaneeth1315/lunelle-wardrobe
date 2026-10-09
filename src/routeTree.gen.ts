@@ -16,6 +16,8 @@ import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AppHomeRouteImport } from './routes/_app.home'
 import { Route as AppWardrobeIndexRouteImport } from './routes/_app.wardrobe.index'
+import { Route as AppWardrobeIdRouteImport } from './routes/_app.wardrobe.$id'
+import { Route as AppWardrobeNewRouteImport } from './routes/_app.wardrobe.new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -51,6 +53,16 @@ const AppWardrobeIndexRoute = AppWardrobeIndexRouteImport.update({
   path: '/wardrobe/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppWardrobeIdRoute = AppWardrobeIdRouteImport.update({
+  id: '/wardrobe/$id',
+  path: '/wardrobe/$id',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppWardrobeNewRoute = AppWardrobeNewRouteImport.update({
+  id: '/wardrobe/new',
+  path: '/wardrobe/new',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -58,6 +70,8 @@ export interface FileRoutesByFullPath {
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/home': typeof AppHomeRoute
+  '/wardrobe/$id': typeof AppWardrobeIdRoute
+  '/wardrobe/new': typeof AppWardrobeNewRoute
   '/wardrobe/': typeof AppWardrobeIndexRoute
 }
 export interface FileRoutesByTo {
@@ -66,6 +80,8 @@ export interface FileRoutesByTo {
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/home': typeof AppHomeRoute
+  '/wardrobe/$id': typeof AppWardrobeIdRoute
+  '/wardrobe/new': typeof AppWardrobeNewRoute
   '/wardrobe': typeof AppWardrobeIndexRoute
 }
 export interface FileRoutesById {
@@ -76,14 +92,31 @@ export interface FileRoutesById {
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/_app/home': typeof AppHomeRoute
+  '/_app/wardrobe/$id': typeof AppWardrobeIdRoute
+  '/_app/wardrobe/new': typeof AppWardrobeNewRoute
   '/_app/wardrobe/': typeof AppWardrobeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/auth' | '/onboarding' | '/reset-password' | '/home' | '/wardrobe/'
+    | '/'
+    | '/auth'
+    | '/onboarding'
+    | '/reset-password'
+    | '/home'
+    | '/wardrobe/$id'
+    | '/wardrobe/new'
+    | '/wardrobe/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/onboarding' | '/reset-password' | '/home' | '/wardrobe'
+  to:
+    | '/'
+    | '/auth'
+    | '/onboarding'
+    | '/reset-password'
+    | '/home'
+    | '/wardrobe/$id'
+    | '/wardrobe/new'
+    | '/wardrobe'
   id:
     | '__root__'
     | '/'
@@ -92,6 +125,8 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/reset-password'
     | '/_app/home'
+    | '/_app/wardrobe/$id'
+    | '/_app/wardrobe/new'
     | '/_app/wardrobe/'
   fileRoutesById: FileRoutesById
 }
@@ -154,16 +189,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppWardrobeIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/wardrobe/$id': {
+      id: '/_app/wardrobe/$id'
+      path: '/wardrobe/$id'
+      fullPath: '/wardrobe/$id'
+      preLoaderRoute: typeof AppWardrobeIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/wardrobe/new': {
+      id: '/_app/wardrobe/new'
+      path: '/wardrobe/new'
+      fullPath: '/wardrobe/new'
+      preLoaderRoute: typeof AppWardrobeNewRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
   AppHomeRoute: typeof AppHomeRoute
+  AppWardrobeIdRoute: typeof AppWardrobeIdRoute
+  AppWardrobeNewRoute: typeof AppWardrobeNewRoute
   AppWardrobeIndexRoute: typeof AppWardrobeIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppHomeRoute: AppHomeRoute,
+  AppWardrobeIdRoute: AppWardrobeIdRoute,
+  AppWardrobeNewRoute: AppWardrobeNewRoute,
   AppWardrobeIndexRoute: AppWardrobeIndexRoute,
 }
 
