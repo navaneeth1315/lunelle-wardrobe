@@ -48,7 +48,7 @@ function Onboarding() {
       .eq("id", user.id);
     await supabase.from("style_preferences").upsert({ user_id: user.id, preferred_styles: styles, preferred_occasions: occasions }, { onConflict: "user_id" });
     setSaving(false);
-    if (error) return toast.error("We couldn't save your preferences. Try again.");
+    if (error) { toast.error("We couldn't save your preferences. Try again."); return; }
     await qc.invalidateQueries({ queryKey: ["profile"] });
     setStep(5);
   }
