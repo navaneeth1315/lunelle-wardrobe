@@ -70,7 +70,7 @@ function AddItem() {
 
   async function saveAll() {
     if (!user) return;
-    if (items.some((i) => !i.draft.name.trim())) return toast.error("Give each piece a name before saving.");
+    if (items.some((i) => !i.draft.name.trim())) { toast.error("Give each piece a name before saving."); return; }
     setSaving(true);
     let ok = 0;
     for (const p of items) {

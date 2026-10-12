@@ -53,18 +53,18 @@ function ItemDetail() {
     setBusy(true);
     const { error } = await supabase.from("wardrobe_items").update(draft).eq("id", id);
     setBusy(false);
-    if (error) return toast.error("We couldn't save your changes.");
+    if (error) { toast.error("We couldn't save your changes."); return; }
     toast.success("Saved");
     refresh();
   }
   async function fav() {
     const { error } = await supabase.from("wardrobe_items").update({ is_favorite: !item!.is_favorite }).eq("id", id);
-    if (error) return toast.error("Couldn't update favourite.");
+    if (error) { toast.error("Couldn't update favourite."); return; }
     refresh();
   }
   async function remove() {
     const { error } = await supabase.from("wardrobe_items").delete().eq("id", id);
-    if (error) return toast.error("Couldn't delete this piece.");
+    if (error) { toast.error("Couldn't delete this piece."); return; }
     if (item!.image_path) await supabase.storage.from("wardrobe").remove([item!.image_path]);
     await refresh();
     qc.invalidateQueries({ queryKey: ["outfits", uid] });
