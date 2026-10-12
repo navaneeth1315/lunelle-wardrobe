@@ -36,7 +36,7 @@ export function ItemImage({
   className,
 }: {
   item: Pick<WardrobeItem, "name" | "image_path">;
-  url?: string;
+  url?: string | undefined;
   className?: string;
 }) {
   return (
@@ -76,7 +76,7 @@ export function SectionHeader({ title, to, label = "See all" }: { title: string;
   );
 }
 
-export function OutfitCollage({ items, urls }: { items: WardrobeItem[]; urls?: Record<string, string> }) {
+export function OutfitCollage({ items, urls }: { items: WardrobeItem[]; urls?: Record<string, string> | undefined }) {
   const shown = items.slice(0, 4);
   return (
     <div className={cn("grid gap-1 overflow-hidden rounded-xl", shown.length > 1 ? "grid-cols-2" : "grid-cols-1")}>

@@ -29,7 +29,7 @@ export async function generateStructured<T>(opts: {
   instructions: string;
   messages: ModelMessage[];
 }): Promise<T> {
-  const apiKey = process.env.LOVABLE_API_KEY;
+  const apiKey = process.env['LOVABLE_API_KEY'];
   if (!apiKey) throw new AiError("Styling is not configured yet.", 401);
   const provider = createOpenAI({
     baseURL: GATEWAY,

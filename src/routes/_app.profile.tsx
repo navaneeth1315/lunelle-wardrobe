@@ -54,7 +54,7 @@ function ProfilePage() {
   async function save() {
     const { error } = await supabase.from("profiles").update({ name, preferred_styles: styles, preferred_occasions: occ }).eq("id", uid);
     await supabase.from("style_preferences").upsert({ user_id: uid, preferred_styles: styles, preferred_occasions: occ }, { onConflict: "user_id" });
-    if (error) return toast.error("We couldn't save your profile.");
+    if (error) { toast.error("We couldn't save your profile."); return; }
     toast.success("Profile updated");
     refresh();
   }
@@ -84,7 +84,7 @@ function ProfilePage() {
     const paths = wardrobe.map((w) => w.image_path).filter(Boolean) as string[];
     if (paths.length) await supabase.storage.from("wardrobe").remove(paths);
     const { error } = await supabase.rpc("delete_my_account");
-    if (error) return toast.error("We couldn't delete your account. Try again.");
+    if (error) { toast.error("We couldn't delete your account. Try again."); return; }
     await supabase.auth.signOut();
     qc.clear();
     navigate({ to: "/" });
