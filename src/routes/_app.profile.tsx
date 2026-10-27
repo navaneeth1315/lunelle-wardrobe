@@ -100,7 +100,7 @@ function ProfilePage() {
         </button>
         <input ref={fileRef} type="file" accept="image/*" hidden onChange={(e) => upload(e.target.files?.[0])} />
         <div className="min-w-0">
-          <h1 className="truncate text-3xl">{profile?.name}</h1>
+          <h1 className="text-2xl leading-snug sm:text-3xl">{profile?.name}</h1>
           <p className="truncate text-sm text-muted-foreground">{user?.email}</p>
         </div>
       </header>

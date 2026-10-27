@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
 import { useAuth } from "@/lib/auth";
+import { Logo } from "@/components/brand";
 
 const search = z.object({ mode: z.enum(["signin", "signup", "forgot"]).catch("signin") });
 
@@ -81,7 +82,7 @@ function AuthPage() {
   return (
     <main className="flex min-h-dvh items-center justify-center bg-background px-6 py-12">
       <div className="w-full max-w-sm animate-fade-up">
-        <Link to="/" className="font-display text-3xl">Lunelle</Link>
+        <Link to="/" aria-label="Lunelle home"><Logo className="w-40" /></Link>
         <h1 className="mt-10 text-4xl">{titles[mode]}</h1>
         {sent ? (
           <div className="card-soft mt-8 p-6 text-sm leading-relaxed">

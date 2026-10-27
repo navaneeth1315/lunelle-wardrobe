@@ -4,6 +4,7 @@ import { CloudSun, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { EmptyState, ItemImage, OutfitCard, SectionHeader } from "@/components/lunelle";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/brand";
 import { useAuth } from "@/lib/auth";
 import { outfitsQuery, profileQuery, shareOutfit, toggleSaved, useImageUrls, wardrobeQuery, type OutfitWithItems } from "@/lib/data";
 import { useWeather } from "@/lib/weather";
@@ -63,7 +64,8 @@ function HomePage() {
     <div className="space-y-10">
       <header className="animate-fade-up">
         <div className="flex items-center justify-between">
-          <p className="eyebrow">{new Date().toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" })}</p>
+          <div className="lg:hidden"><Logo className="w-28" /></div>
+        <p className="eyebrow">{new Date().toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" })}</p>
           <span className="flex items-center gap-1.5 rounded-full bg-card px-3 py-1 text-xs text-muted-foreground shadow-soft">
             <CloudSun className="size-3.5" strokeWidth={1.5} />
             {weather ? `${weather.temp}° · ${weather.label}` : status === "loading" ? "Checking weather…" : profile?.default_weather ?? "Weather off"}

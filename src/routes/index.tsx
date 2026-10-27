@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
 import hero from "@/assets/hero.jpg";
+import { Logo } from "@/components/brand";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth";
 
@@ -33,7 +34,7 @@ function Landing() {
       </div>
       <section className="flex flex-col justify-center px-7 pb-12 pt-2 lg:px-20">
         <p className="eyebrow animate-fade-up">AI wardrobe stylist</p>
-        <h1 className="animate-fade-up mt-3 text-6xl leading-[0.95] lg:text-7xl">Lunelle</h1>
+        <h1 className="animate-fade-up mt-2"><Logo className="w-64 max-w-full" /></h1>
         <p className="animate-fade-up mt-4 max-w-sm text-lg text-muted-foreground">
           Your wardrobe, styled intelligently. Outfits built from the clothes you already own.
         </p>
