@@ -29,7 +29,7 @@ function Landing() {
   return (
     <main className="min-h-dvh bg-background lg:grid lg:grid-cols-2">
       <div className="relative h-[58dvh] lg:h-dvh">
-        <img src={hero} alt="Folded linen shirt, trousers and loafers" width={1024} height={1280} className="h-full w-full object-cover" />
+        <img src={hero} alt="Pencil sketch of a folded blouse, pleated trousers and loafers beneath a clothes hanger" width={1024} height={1280} className="h-full w-full object-cover" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent lg:hidden" />
       </div>
       <section className="flex flex-col justify-center px-7 pb-12 pt-2 lg:px-20">
