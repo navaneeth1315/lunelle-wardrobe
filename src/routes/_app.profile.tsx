@@ -38,6 +38,8 @@ function ProfilePage() {
   const { data: urls } = useImageUrls([avatarPath]);
   const avatarSrc = avatarPath ? urls?.[avatarPath] : profile?.avatar_url ?? undefined;
 
+  const [avatarFailed, setAvatarFailed] = useState(false);
+  useEffect(() => setAvatarFailed(false), [avatarSrc]);
   const [name, setName] = useState("");
   const [styles, setStyles] = useState<string[]>([]);
   const [occ, setOcc] = useState<string[]>([]);
@@ -95,7 +97,7 @@ function ProfilePage() {
     <div className="space-y-8">
       <header className="flex items-center gap-5">
         <button onClick={() => fileRef.current?.click()} className="relative size-20 shrink-0 overflow-hidden rounded-full bg-secondary" aria-label="Change profile photo">
-          {avatarSrc ? <img src={avatarSrc} alt="" className="h-full w-full object-cover" /> : <span className="font-display flex h-full items-center justify-center text-3xl">{(profile?.name ?? "L")[0]}</span>}
+          {avatarSrc && !avatarFailed ? <img src={avatarSrc} alt="" onError={() => setAvatarFailed(true)} className="h-full w-full object-cover" /> : <span className="font-display flex h-full items-center justify-center text-3xl">{(profile?.name ?? "L")[0]}</span>}
           <span className="absolute bottom-0 right-0 rounded-full bg-card p-1.5 shadow-soft"><Camera className="size-3" /></span>
         </button>
         <input ref={fileRef} type="file" accept="image/*" hidden onChange={(e) => upload(e.target.files?.[0])} />
