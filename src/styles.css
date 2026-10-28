@@ -116,9 +116,13 @@
 }
 
 @layer base {
-  html { -webkit-tap-highlight-color: transparent; }
+  html { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: contain; }
   body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
   h1, h2, h3, .font-display { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
+  /* Touch screens get pressed-state feedback instead of hover */
+  @media (hover: none) {
+    button:active, a:active { opacity: 0.7; }
+  }
 }
 
 @utility eyebrow {
@@ -138,6 +142,10 @@
 
 @utility pb-safe {
   padding-bottom: calc(env(safe-area-inset-bottom) + 5.5rem);
+}
+
+@utility pt-safe-top {
+  padding-top: max(1.5rem, env(safe-area-inset-top));
 }
 
 @keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
