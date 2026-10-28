@@ -75,7 +75,7 @@ function Onboarding() {
   ];
 
   return (
-    <main className="flex min-h-dvh flex-col bg-background px-6 pb-10 pt-6">
+    <main className="flex min-h-dvh flex-col bg-background px-6 pb-10 pt-safe-top">
       <div className="mx-auto flex w-full max-w-md items-center justify-between">
         {step > 0 && step < 5 ? (
           <button onClick={() => setStep(step - 1)} aria-label="Back" className="rounded-full p-2 hover:bg-secondary"><ArrowLeft className="size-5" strokeWidth={1.5} /></button>

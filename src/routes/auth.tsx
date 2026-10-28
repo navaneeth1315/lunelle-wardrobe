@@ -80,7 +80,7 @@ function AuthPage() {
   const titles = { signin: "Welcome back", signup: "Create your account", forgot: "Reset your password" };
 
   return (
-    <main className="flex min-h-dvh items-center justify-center bg-background px-6 py-12">
+    <main className="flex min-h-dvh items-center justify-center bg-background px-6 pt-safe-top pb-12">
       <div className="w-full max-w-sm animate-fade-up">
         <Link to="/" aria-label="Lunelle home"><Logo className="w-40" /></Link>
         <h1 className="mt-10 text-4xl">{titles[mode]}</h1>
