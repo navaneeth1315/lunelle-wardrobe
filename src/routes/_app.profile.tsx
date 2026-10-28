@@ -38,6 +38,8 @@ function ProfilePage() {
   const { data: urls } = useImageUrls([avatarPath]);
   const avatarSrc = avatarPath ? urls?.[avatarPath] : profile?.avatar_url ?? undefined;
 
+  const [avatarFailed, setAvatarFailed] = useState(false);
+  useEffect(() => setAvatarFailed(false), [avatarSrc]);
   const [name, setName] = useState("");
   const [styles, setStyles] = useState<string[]>([]);
   const [occ, setOcc] = useState<string[]>([]);
