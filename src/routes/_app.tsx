@@ -54,7 +54,7 @@ function AppLayout() {
           ))}
         </nav>
       </aside>
-      <main className="pb-safe mx-auto w-full max-w-5xl px-5 pt-6 lg:px-10 lg:pb-12 lg:pt-10">
+      <main className="pt-safe-top pb-safe mx-auto w-full max-w-5xl px-5 lg:px-10 lg:pb-12 lg:pt-10">
         <Outlet />
       </main>
       <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden">
