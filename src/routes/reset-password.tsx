@@ -34,7 +34,7 @@ function ResetPassword() {
   }
 
   return (
-    <main className="flex min-h-dvh items-center justify-center bg-background px-6 py-safe-top">
+    <main className="flex min-h-dvh items-center justify-center bg-background px-6 pt-safe-top">
       <form onSubmit={submit} className="w-full max-w-sm space-y-5">
         <p className="font-display text-3xl">Lunelle</p>
         <h1 className="text-4xl">Set a new password</h1>
