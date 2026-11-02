@@ -15,7 +15,7 @@ const config: CapacitorConfig = {
   },
   server: {
     // Hosted app served in the native WebView; update if the primary domain changes.
-    url: "https://pixel-perfect-picture-match-866.lovable.app",
+    url: "https://lunelle-wardrobe.lovable.app",
     androidScheme: "https",
   },
 };
